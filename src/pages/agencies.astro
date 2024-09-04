@@ -1,0 +1,86 @@
+ <div class="card-list">
+        <div class="card">
+            <h2 class="card-title">Card Title 1</h2>
+            <h3 class="card-subtitle">Subtitle 1</h3>
+            <div class="card-tags">
+                <span class="card-tag">Tag 1</span>
+                <span class="card-tag">Tag 2</span>
+                <span class="card-tag">Tag 3</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Card Title 2</h2>
+            <h3 class="card-subtitle">Subtitle 2</h3>
+            <div class="card-tags">
+                <span class="card-tag">Tag A</span>
+                <span class="card-tag">Tag B</span>
+                <span class="card-tag">Tag C</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Card Title 3</h2>
+            <h3 class="card-subtitle">Subtitle 3</h3>
+            <div class="card-tags">
+                <span class="card-tag">Tag X</span>
+                <span class="card-tag">Tag Y</span>
+                <span class="card-tag">Tag Z</span>
+            </div>
+        </div>
+    </div>
+
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card-list {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff9e6; /* Light yellow background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .card-subtitle {
+            font-size: 1rem;
+            margin: 0 0 15px 0;
+            color: #666;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .card-tag {
+            background-color: #ffd700; /* Golden yellow for tags */
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
