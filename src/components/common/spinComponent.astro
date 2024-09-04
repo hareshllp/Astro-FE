@@ -1,0 +1,15 @@
+---
+import ClipLoader from "react-spinners/ClipLoader";
+const { color, loading, override } = Astro.props;
+---
+
+<div>
+  <ClipLoader
+    color={color}
+    loading={loading}
+    cssOverride={override || false}
+    size={150}
+    aria-label="Loading Spinner"
+    data-testid="loader"
+  />
+</div>

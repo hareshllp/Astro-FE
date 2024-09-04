@@ -1,0 +1,41 @@
+export const CDN_PREFIX = "https://res.cloudinary.com/djkjakggs/image/upload/";
+export const partner = [
+  {
+    logo: `${CDN_PREFIX}v1703489997/linearloop/client-logo/kukufm_htbrgn.svg`,
+    alt: "kukufm-logo",
+    title: "kukufm-logo",
+    growth: "400%",
+    desc: "Revenue increase",
+    url: "/case-study/kukufm",
+    className: "h-[28px] w-[95px]",
+    // height: {28},
+    // width: "95px",
+  },
+  {
+    logo: "/saleshandy.svg",
+    alt: "saleshandy",
+    title: "saleshandy",
+    growth: "4X",
+    desc: "Time-to-market speed",
+    url: "/case-study",
+    className: "h-[23px] w-[140px]",
+  },
+  {
+    logo: "/betterbugs.svg",
+    alt: "betterbugs",
+    title: "betterbugs",
+    growth: "70%",
+    desc: "User registrations",
+    url: "/case-study/betterbugs",
+    className: "h-[23px] w-[141px]",
+  },
+  {
+    logo: "/obatala-coffee.svg",
+    alt: "obatala-coffee",
+    title: "obatala-coffee",
+    growth: "90%",
+    desc: "Ecommerce Growth",
+    url: "/case-study/",
+    className: "h-[26px] w-[140px]",
+  },
+];

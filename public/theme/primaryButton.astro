@@ -1,0 +1,23 @@
+---
+import SpinComponent from "@components/common/spinComponent.astro";
+
+const { text, btnClass, icon, loading, onClick, isCTA, ctaValue } = Astro.props;
+// const handleClick = () => {
+//   if (isCTA && ctaValue) sessionStorage.setItem("CTA", ctaValue);
+//   onClick();
+// };
+---
+
+<!-- on:click={() => {
+        
+      }} -->
+<div class={`primary-btn ${loading ? "disable-btn" : ""}`}>
+  <button
+    class={`${btnClass ? btnClass : ""} flex justify-center gap-4 items-center`}
+    disabled={loading}
+  >
+    {loading && <SpinComponent {...{color:"#1D2B4A", loading}} />}
+    <span>{text}</span>
+    {icon}
+  </button>
+</div>
