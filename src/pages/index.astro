@@ -6,6 +6,7 @@ import ClientComponent from "@components/home/clientComponent.astro";
 import ServiceTabComponent from "@components/home/serviceTabComponent.astro";
 import WebDevelopmentTab from "@components/home/webDevelopmentTab.astro";
 import { fetchBlogsAPI } from "@api/blog";
+import CaseStudy from "@components/home/caseStudy.astro";
 const colors = ["#FA78001A", "#4980BC1A", "#00DA921A", "#A8E5FF1A"];
 
 const response = await fetchBlogsAPI({
@@ -193,6 +194,14 @@ const blogsList = await response.json();
   <!-- Component 3 -->
   <ServiceTabComponent />
   <!-- Component 4 -->
+  <ServiceTabComponent />
+  <div class="max-w-[1170px] mx-auto mt-10 lg:mt-[70px]">
+    <div class="md:container px-4 md:px-auto mx-auto">
+      <CaseStudy />
+    </div>
+  </div>
+
+  <!-- Component 5 -->
   <section>
     <div class="max-w-[1170px] mx-auto">
       <div class="lg:container px-4 md:px-auto mx-auto">

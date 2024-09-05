@@ -1,0 +1,124 @@
+---
+import { CDN_PREFIX } from "@utils/constants";
+
+const caseStudy = [
+  {
+    company_logo: `${CDN_PREFIX}v1703489997/linearloop/client-logo/kukufm_htbrgn.svg`,
+    logoAlt: "kuku-fm",
+    des: "KUKU FM is a rapidly growing audio content platform that offers exclusive audiobooks, stories, courses, and more across 50+ genres and 5 languages.",
+    title: "Kukufm – Premier Audio Content Platform",
+    icon: "/headphone.png",
+    link: "/case-study/kukufm",
+    tag: [
+      { tagName: "95% Uptime" },
+      { tagName: "Achieved 85% CSAT score" },
+      { tagName: "2M+ Active users" },
+      { tagName: "3x increase in subscription" },
+    ],
+  },
+  {
+    company_logo: `${CDN_PREFIX}v1703489997/linearloop/client-logo/healtho_zp3a4i.svg`,
+    logoAlt: "Healtho",
+    des: "HealthO is a specialized tool designed to meet the unique needs of Silver Linings Healthcare.",
+    title: "HealthO – Simplifying Patient Care Like a Pro",
+    icon: "/healtho-icon.png",
+    link: "/case-study/healtho",
+    tag: [
+      { tagName: "50% boost in data monitoring efficiency" },
+      { tagName: "25% reduction in infrastructure cost" },
+      { tagName: "67% growth in maintaining high availability" },
+    ],
+  },
+  {
+    company_logo: "/case-study/case-study-details/jupiter/jupiter-logo.svg",
+    logoAlt: "jupiter",
+    des: "Jupiter Health, Canada’s go-to platform, offers faster, easier healthcare access than traditional methods.",
+    title: "Jupiter – Canada's Leading Healthcare Platform",
+    icon: "/jupiter-icon.png",
+    link: "/case-study/health-care-platform",
+    tag: [
+      { tagName: "60% reduction in waiting times" },
+      { tagName: "4X boost in user experience" },
+      { tagName: "93.5% increased usability" },
+      { tagName: "Guaranteed confidentiality of patient data" },
+    ],
+  },
+  {
+    company_logo: "/client-logo/likita.svg",
+    logoAlt: "likita",
+    des: "Likita streamlines healthcare practice management with automated appointment scheduling, prioritizing patient care.",
+    title: "Likita – Healthcare Management Solution",
+    icon: "/likita-icon.png",
+    link: "/case-study/telehealth-medical-platform",
+    tag: [
+      { tagName: "Received 250+ appointment within 3 months" },
+      { tagName: "50% of patients found the app easy to use" },
+      { tagName: "Scored an NPS of 9/10" },
+      { tagName: "Achieved HIPAA compliance" },
+    ],
+  },
+];
+---
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    {
+      caseStudy.map((t) => {
+        return (
+          <div class="lg:px-auto mx-auto mt-7 flip-container">
+            <div class="bg-[#51A95812] lg:m-4  rounded-[15px] relative">
+              <a href={t.link}>
+                <div class="p-4 lg:p-[30px] lg:w-[569px] lg:h-[443px]">
+                  <div>
+                    <img
+                      src={t.company_logo}
+                      alt={t.logoAlt}
+                      height={20}
+                      width={120}
+                    />
+                    <p class="text-xl !font-bold pt-4 lg:w-4/5">{t.title}</p>
+                    <p class="text-base text-white/80 pt-4">{t.des}</p>
+
+                    <p class="pt-3 text-[#2EB1CE] flex items-center mt-2 cursor-pointer hover:underline w-max">
+                      Read More
+                    </p>
+                    <div class="mt-5 md:flex flex-wrap gap-3">
+                      {t?.tag?.map((tags: any, index: any) => (
+                        <div class="flex lg:items-center gap-2 border border-primary/30 bg-primary/30 py-1 px-2 lg:px-4 w-fit rounded-[50px] mt-2 lg:mt-0">
+                          <p class="text-xs lg:text-sm">{tags?.tagName}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div class=" absolute top-5 right-5">
+                    <div class="flipper">
+                      <div class="hidden lg:block case-study-icon">
+                        <img
+                          src={t.icon}
+                          alt="headphone"
+                          height={82}
+                          width={84}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script is:inline>
+  new Swiper(".swiper");
+</script>

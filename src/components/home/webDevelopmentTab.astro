@@ -40,9 +40,8 @@ const { data, isLoading, isLoad } = Astro.props;
               class="w-full md:w-[19rem] lg:w-[18.65rem] xl:w-[23rem] caseStudyImgSection overflow-hidden"
             >
               <div class="overflow-hidden rounded-[5px]">
-                <Image
-                //    src={`${import.meta.env.AWS_S3_URL}${blog?.attributes?.Listing_Image?.data?.attributes?.hash}${blog?.attributes?.Listing_Image?.data?.attributes?.ext}`}
-                  src={aistaricon}
+                <img
+                  src={`${import.meta.env.AWS_S3_URL}${blog?.attributes?.Listing_Image?.data?.attributes?.hash}${blog?.attributes?.Listing_Image?.data?.attributes?.ext}`}
                   alt={blog?.attributes?.Title}
                   title={blog?.attributes?.Title}
                   width={385}
