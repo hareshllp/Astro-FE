@@ -1,0 +1,44 @@
+---
+import Header from '@components/sample/Header.astro';
+import Slider from '@components/sample/Slider.astro';
+import Testimonials from '@components/sample/Testimonials.astro';
+import Partners from '@components/sample/Partners.astro';
+import Footer from '@components/sample/Footer.astro';
+
+// Data for sections
+const slides = [
+  { title: 'Slide 1', description: 'This is the first slide' },
+  { title: 'Slide 2', description: 'This is the second slide' },
+  { title: 'Slide 3', description: 'This is the third slide' },
+];
+
+const testimonials = [
+  { name: 'John Doe', text: 'Great service!', company: 'Company A' },
+  { name: 'Jane Smith', text: 'Highly recommended!', company: 'Company B' },
+];
+
+const partners = [
+  { name: 'Partner 1', logo: '/partner1.png' },
+  { name: 'Partner 2', logo: '/partner2.png' },
+];
+---
+
+<Header />
+
+<main class="max-w-7xl mx-auto p-8">
+  <section>
+    <Slider {slides} />
+  </section>
+
+  <section class="my-12">
+    <h2 class="text-3xl font-bold text-center mb-8">What Our Clients Say</h2>
+    <Testimonials {testimonials} />
+  </section>
+
+  <section class="my-12">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Partners</h2>
+    <Partners {partners} />
+  </section>
+</main>
+
+<Footer />

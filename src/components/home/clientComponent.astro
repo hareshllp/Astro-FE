@@ -1,0 +1,191 @@
+---
+import HeadingComponent from "@components/home/headingComponent";
+import { clientLogo } from "@utils/constants";
+
+import HomeStyles from "./homeStyles.module.scss";
+import { Image } from "astro:assets";
+---
+
+<>
+  <HeadingComponent
+    title="Brands We've Worked With"
+    titleClass="partner-gradient"
+  />
+  <div
+    class={`${HomeStyles.clientLogoContainer} overflow-hidden mx-auto px-16 py-4 mt-4`}
+  >
+    <div
+      class={`${HomeStyles.clientLogo} flex flex-wrap justify-center md:flex-nowrap items-center gap-4 md:gap-12`}
+    >
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+      {
+        clientLogo.map((cl: any) => {
+          return (
+            <div>
+              <Image
+                src={cl.logo}
+                alt={cl.alt}
+                width={cl.width}
+                height={cl.height}
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+    <div class={HomeStyles.clientLogoOverlay}></div>
+  </div>
+</>

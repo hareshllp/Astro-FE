@@ -1,0 +1,12 @@
+---
+// Accepts `partners` array as a prop
+const { partners } = Astro.props;
+---
+
+<div class="flex justify-center gap-8">
+  {partners.map((partner: { name: string | null | undefined; logo: string | null | undefined; }) => (
+    <div>
+      <img src={partner.logo} alt={partner.name} class="h-12" />
+    </div>
+  ))}
+</div>

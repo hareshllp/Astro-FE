@@ -2,7 +2,19 @@
 import { partner } from "@utils/constants";
 import Layout from "../layouts/Layout.astro";
 import PrimaryButton from "@components/common/primaryButton.astro";
+import ClientComponent from "@components/home/clientComponent.astro";
+import ServiceTabComponent from "@components/home/serviceTabComponent.astro";
+import WebDevelopmentTab from "@components/home/webDevelopmentTab.astro";
+import { fetchBlogsAPI } from "@api/blog";
 const colors = ["#FA78001A", "#4980BC1A", "#00DA921A", "#A8E5FF1A"];
+
+const response = await fetchBlogsAPI({
+  pageSize: 4,
+});
+if (!response.ok) {
+  throw new Error(`HTTP error: ${response.status}`);
+}
+const blogsList = await response.json();
 ---
 
 <style>
@@ -32,155 +44,161 @@ const colors = ["#FA78001A", "#4980BC1A", "#00DA921A", "#A8E5FF1A"];
   }
 </style>
 
-<Layout title="Welcome to Astro.">
-  <div>
-    <div id="scrollableDiv">
-      <div class="fadeInBottom">
-        <section class="pt-10 max-w-[1170px] mx-auto">
-          <div class="md:container md:px-auto mx-auto">
-            <div class="w-max mx-auto z-10 relative parentElement">
-              <div class="animatedBorderBox"></div>
-              <a href="/services/ai-development">
-                <div
-                  class="bg-[#092C46] border z-10 relative border-[#09444C] gap-2 mx-auto flex items-center w-fit rounded-full p-1 pl-1 pr-2"
-                >
-                  <p
-                    class="herosection-ai-gradient text-black text-sm !font-medium rounded-full px-2 py-1"
-                  >
-                    New
-                  </p>
-                  <img
-                    src="/ai-star-icon.png"
-                    alt="ai-icon"
-                    height="17"
-                    width="18"
-                  />
-                  <p class="text-sm !font-medium">Introducing AI Automation</p>
-                  <!-- <NextIconAI /> -->
-                </div>
-              </a>
-            </div>
-            <div class="mt-8 text-center">
-              <div class="lg:hidden">
-                <div class="hero-animation">
-                  <p class="text-2xl md:text-4xl lg:text-6xl !font-bold">
-                    Your
-                  </p>
-                  <section
-                    class="animation text-2xl md:text-4xl lg:text-6xl !font-bold h-[90px]"
-                  >
-                    <div class="first">
-                      <p class="!font-bold">Growth</p>
-                    </div>
-                    <div class="second">
-                      <p class="!font-bold">Technical</p>
-                    </div>
-                  </section>
-                  <p class="text-2xl md:text-4xl lg:text-6xl !font-bold">
-                    Partner for
-                  </p>
-                </div>
-                <p
-                  class="digital-gradient text-2xl md:text-4xl lg:text-6xl !font-bold"
-                >
-                  Software Success & Digital Transformation
-                </p>
-              </div>
-              <div class="hidden lg:block">
-                <div class="hero-animation">
-                  <p class="text-2xl md:text-4xl lg:text-6xl !font-bold">
-                    Your
-                  </p>
-                  <section
-                    class="animation text-2xl md:text-4xl lg:text-6xl !font-bold h-[90px]"
-                  >
-                    <div class="first">
-                      <p class="!font-bold">Growth</p>
-                    </div>
-                    <div class="second">
-                      <p class="!font-bold">Technical</p>
-                    </div>
-                  </section>
-                  <p class="mr-2 text-2xl md:text-4xl lg:text-6xl !font-bold">
-                    Partner for
-                  </p>
-                  <p
-                    class="digital-gradient text-2xl md:text-4xl lg:text-6xl !font-bold"
-                  >
-                    Software
-                  </p>
-                </div>
-                <p
-                  class="digital-gradient text-2xl md:text-4xl lg:text-6xl !font-bold"
-                >
-                  Success & Digital Transformation
-                </p>
-              </div>
-              <p
-                class="lg:hidden text-base md:text-xl font-medium text-white/80 pt-4 w-full lg:w-[90%] xl:w-[84%] mx-auto"
+<Layout title="Your software product development ally - US, UK, EU, & India.">
+  <!-- Component 1 -->
+  <div id="scrollableDiv">
+    <div class="fadeInBottom">
+      <section class="pt-10 max-w-[1170px] mx-auto">
+        <div class="md:container md:px-auto mx-auto">
+          <div class="w-max mx-auto z-10 relative parentElement">
+            <div class="animatedBorderBox"></div>
+            <a href="/services/ai-development">
+              <div
+                class="bg-[#092C46] border z-10 relative border-[#09444C] gap-2 mx-auto flex items-center w-fit rounded-full p-1 pl-1 pr-2"
               >
-                You're in control at Linearloop, with people-first development
-                and exceptional QA guiding the way.
-              </p>
-              <p
-                class="hidden lg:block text-base md:text-xl font-medium text-white/80 pt-4 w-full lg:w-[90%] xl:w-[84%] mx-auto"
-              >
-                At Linearloop, you're at the heart of digital transformation.
-                With human-centric development and top-tier quality assurance,
-                we deliver bespoke products that resonate with your customers.
-              </p>
-            </div>
-
-            <div class="mt-12 md:flex md:flex-wrap justify-center gap-7">
-              {
-                partner.map((item, index) => {
-                  const backgroundColor = colors[index % colors.length];
-                  return (
-                    <a
-                      href={item.url}
-                      class="caseStudyImgSection overflow-hidden rounded-[10px]"
-                    >
-                      <div
-                        class="md:w-[250px] mb-4 md:mb-0 p-6 rounded-[10px] caseStudyZoomImg overflow-hidden"
-                        style={{ backgroundColor }}
-                      >
-                        <div class="flex items-center justify-between">
-                          <span>
-                            <img
-                              src={item.logo}
-                              alt={item.alt}
-                              title={item.title}
-                              width="95"
-                              height="28"
-                              class={item.className}
-                            />
-                          </span>
-                          <span>
-                            {/* <RightArrowUpIcon /> */}
-                          </span>
-                        </div>
-                        <p class="!font-bold pt-10">{item.growth}</p>
-                        <p class="text-white/80 font-base !font-medium">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </a>
-                  );
-                })
-              }
-            </div>
-
-            <div class="flex justify-center pt-8">
-              <a href="/case-study" target="_parent">
-                <PrimaryButton
-                  btnClass="btn-primary !rounded-[3px] p-3 px-9 flex justify-center mt-5 !text-base"
-                  text="See Other Projects"
+                <p
+                  class="herosection-ai-gradient text-black text-sm !font-medium rounded-full px-2 py-1"
+                >
+                  New
+                </p>
+                <img
+                  src="/ai-star-icon.png"
+                  alt="ai-icon"
+                  height="17"
+                  width="18"
                 />
-              </a>
-            </div>
+                <p class="text-sm !font-medium">Introducing AI Automation</p>
+                <!-- <NextIconAI /> -->
+              </div>
+            </a>
           </div>
-        </section>
-      </div>
+          <div class="mt-8 text-center">
+            <div class="lg:hidden">
+              <div class="hero-animation">
+                <p class="text-2xl md:text-4xl lg:text-6xl !font-bold">Your</p>
+                <section
+                  class="animation text-2xl md:text-4xl lg:text-6xl !font-bold h-[90px]"
+                >
+                  <div class="first">
+                    <p class="!font-bold">Growth</p>
+                  </div>
+                  <div class="second">
+                    <p class="!font-bold">Technical</p>
+                  </div>
+                </section>
+                <p class="text-2xl md:text-4xl lg:text-6xl !font-bold">
+                  Partner for
+                </p>
+              </div>
+              <p
+                class="digital-gradient text-2xl md:text-4xl lg:text-6xl !font-bold"
+              >
+                Software Success & Digital Transformation
+              </p>
+            </div>
+            <div class="hidden lg:block">
+              <div class="hero-animation">
+                <p class="text-2xl md:text-4xl lg:text-6xl !font-bold">Your</p>
+                <section
+                  class="animation text-2xl md:text-4xl lg:text-6xl !font-bold h-[90px]"
+                >
+                  <div class="first">
+                    <p class="!font-bold">Growth</p>
+                  </div>
+                  <div class="second">
+                    <p class="!font-bold">Technical</p>
+                  </div>
+                </section>
+                <p class="mr-2 text-2xl md:text-4xl lg:text-6xl !font-bold">
+                  Partner for
+                </p>
+                <p
+                  class="digital-gradient text-2xl md:text-4xl lg:text-6xl !font-bold"
+                >
+                  Software
+                </p>
+              </div>
+              <p
+                class="digital-gradient text-2xl md:text-4xl lg:text-6xl !font-bold"
+              >
+                Success & Digital Transformation
+              </p>
+            </div>
+            <p
+              class="lg:hidden text-base md:text-xl font-medium text-white/80 pt-4 w-full lg:w-[90%] xl:w-[84%] mx-auto"
+            >
+              You're in control at Linearloop, with people-first development and
+              exceptional QA guiding the way.
+            </p>
+            <p
+              class="hidden lg:block text-base md:text-xl font-medium text-white/80 pt-4 w-full lg:w-[90%] xl:w-[84%] mx-auto"
+            >
+              At Linearloop, you're at the heart of digital transformation. With
+              human-centric development and top-tier quality assurance, we
+              deliver bespoke products that resonate with your customers.
+            </p>
+          </div>
+
+          <div class="mt-12 md:flex md:flex-wrap justify-center gap-7">
+            {
+              partner.map((item, index) => {
+                const backgroundColor = colors[index % colors.length];
+                return (
+                  <a
+                    href={item.url}
+                    class="caseStudyImgSection overflow-hidden rounded-[10px]"
+                  >
+                    <div
+                      class="md:w-[250px] mb-4 md:mb-0 p-6 rounded-[10px] caseStudyZoomImg overflow-hidden"
+                      style={{ backgroundColor }}
+                    >
+                      <div class="flex items-center justify-between">
+                        <span>
+                          <img
+                            src={item.logo}
+                            alt={item.alt}
+                            title={item.title}
+                            width="95"
+                            height="28"
+                            class={item.class}
+                          />
+                        </span>
+                        <span>{/* <RightArrowUpIcon /> */}</span>
+                      </div>
+                      <p class="!font-bold pt-10">{item.growth}</p>
+                      <p class="text-white/80 font-base !font-medium">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </a>
+                );
+              })
+            }
+          </div>
+
+          <div class="flex justify-center pt-8">
+            <a href="/case-study" target="_parent">
+              <PrimaryButton
+                btnClass="btn-primary !rounded-[3px] p-3 px-9 flex justify-center mt-5 !text-base"
+                text="See Other Projects"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
+
+  <!-- Component 2 -->
+  <ClientComponent />
+  <!-- Component 3 -->
+  <ServiceTabComponent />
+  <!-- Component 4 -->
+  <section>
+    <div class="max-w-[1170px] mx-auto">
+      <div class="lg:container px-4 md:px-auto mx-auto">
+        <WebDevelopmentTab {...{ data: blogsList }} />
+      </div>
+    </div>
+  </section>
 </Layout>

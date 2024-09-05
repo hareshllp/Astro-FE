@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import "variables.scss";
 
 html,
@@ -1517,7 +1513,6 @@ textarea {
     }
 }
 
-// ------------------- checkbox ---------------------//
 
 input[type="checkbox"] {
     position: relative;
@@ -1959,7 +1954,6 @@ input[type="checkbox"] {
     @media (min-width: 565px) and (max-width: 930px) {
         height: 53px;
     }
-    overflow: hidden;
 }
 
 .animation > div > p {

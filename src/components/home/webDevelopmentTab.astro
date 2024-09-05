@@ -1,0 +1,90 @@
+---
+import { Fragment } from "react";
+import { Image } from "astro:assets";
+import DefaultSkeleton from "@components/home/defaultSkeleton";
+import TagComponent from "@components/home/tagComponent";
+
+import aistaricon from "@src/ai-star-icon.png";
+const { data, isLoading, isLoad } = Astro.props;
+---
+
+<>
+  <div class="flex flex-wrap lg:gap-8">
+    {
+      isLoad && (
+        <DefaultSkeleton
+          times={3}
+          class="w-full md:w-[21rem] lg:w-[18.65rem] xl:w-[23rem]"
+        />
+      )
+    }
+  </div>
+
+  <div class="flex flex-wrap gap-8">
+    {
+      isLoading && (
+        <DefaultSkeleton
+          times={3}
+          class="w-full md:w-[21rem] lg:w-[18.65rem] xl:w-[23rem]"
+        />
+      )
+    }
+    {
+      !isLoading &&
+        !isLoad &&
+        data?.data &&
+        data?.data.map((blog: any, key: any) => (
+          <>
+            <a
+              href={`/blog/${blog?.attributes?.Slug}`}
+              class="w-full md:w-[19rem] lg:w-[18.65rem] xl:w-[23rem] caseStudyImgSection overflow-hidden"
+            >
+              <div class="overflow-hidden rounded-[5px]">
+                <Image
+                //    src={`${import.meta.env.AWS_S3_URL}${blog?.attributes?.Listing_Image?.data?.attributes?.hash}${blog?.attributes?.Listing_Image?.data?.attributes?.ext}`}
+                  src={aistaricon}
+                  alt={blog?.attributes?.Title}
+                  title={blog?.attributes?.Title}
+                  width={385}
+                  height={220}
+                  class="w-[28rem] rounded-[5px] caseStudyZoomImg"
+                />
+              </div>
+              <div class="mt-6">
+                <h4 class="text-[1.3rem] font-normal tracking-[0.5px] title-overflow-clamp">
+                  {blog.attributes.Title.length > 50
+                    ? `${blog.attributes.Title.substring(0, 50)}...`
+                    : blog.attributes.Title}
+                </h4>
+                {/* <div
+                                        dangerouslySetInnerHTML={{
+                                            __html: blog?.attributes
+                                                ?.Description
+                                                ? blog.attributes.Description
+                                                      .length > 85
+                                                    ? `${blog.attributes.Description.substring(
+                                                          0,
+                                                          82,
+                                                      )}...`
+                                                    : blog.attributes
+                                                          .Description
+                                                : "",
+                                        }}
+                                        class="text-base font-light text-white/80 tracking-[0.5px] !leading-[150%] pt-2.5"
+                                    ></div> */}
+              </div>
+              <div class="pt-7 flex items-center justify-between gap-2">
+                <TagComponent
+                  tag={blog?.attributes?.Category?.data?.attributes?.Name}
+                  bgColor="rgba(255, 214, 89, 0.1)"
+                />
+                <span class="text-sm text-white/80">
+                  {blog?.attributes?.Read_Minutes} min read
+                </span>
+              </div>
+            </a>
+          </>
+        ))
+    }
+  </div>
+</>

@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import HeadingComponent from "./headingComponent";
+
+import aistaricon from "@src/ai-star-icon.png"
+const service = [
+  {
+    alt: "mvp-development",
+    title: "MVP Development",
+    desc: "We offer bespoke MVP development services tailored to meet diverse client requirements and accelerated time-to-market.",
+    url: "/services/mvp",
+  },
+  {
+    alt: "mvp-development",
+    title: "MVP Development",
+    desc: "We offer bespoke MVP development services tailored to meet diverse client requirements and accelerated time-to-market.",
+    url: "/services/mvp",
+  },
+  {
+    alt: "mvp-development",
+    title: "MVP Development",
+    desc: "We offer bespoke MVP development services tailored to meet diverse client requirements and accelerated time-to-market.",
+    url: "/services/mvp",
+  },
+  {
+    alt: "mvp-development",
+    title: "MVP Development",
+    desc: "We offer bespoke MVP development services tailored to meet diverse client requirements and accelerated time-to-market.",
+    url: "/services/mvp",
+  },
+  
+  
+];
+---
+
+<div
+  class="lg:container px-4 md:px-0 lg:px-auto mx-auto pt-10 pb-5 lg:py-[70px]"
+>
+  <HeadingComponent
+    title="SERVICES"
+    titleClass="service-gradient"
+    label="Product Development"
+    description="Experience the power of top-notch digital products designed exclusively for your unique business needs. With our seasoned team of experts at the helm, expect nothing short of exceptional results that surpass expectations."
+  />
+  <div
+    class="md:flex flex-wrap px-4 lg:px-0 gap-1 lg:gap-[30px] md:justify-between lg:justify-center mt-14"
+  >
+    {
+      service.map((item: any, index: any) => {
+        return (
+          <a href={item.url}>
+            <div class="md:w-[317px] lg:w-[367px] imgSection overflow-hidden">
+              <div class="overflow-hidden rounded-[18px]">
+                <Image
+                  src={aistaricon}
+                  alt={item.alt}
+                  height={287}
+                  width={367}
+                  class="rounded-[18px] h-[231px] w-full teamSection ZoomImg"
+                />
+              </div>
+              <p class="text-2xl !font-semibold pt-5">{item.title}</p>
+              <p class="text-base pt-5 text-white/80 mb-5 lg:mb-0">
+                {item.desc}
+              </p>
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
+</div>

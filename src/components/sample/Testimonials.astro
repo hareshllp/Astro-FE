@@ -1,0 +1,13 @@
+---
+// Accepts `testimonials` array as a prop
+const { testimonials } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  {testimonials.map((testimonial: { name: unknown; text: unknown; company: unknown; }) => (
+    <div class="testimonial p-4 border rounded">
+      <p class="text-lg">"{testimonial.text}"</p>
+      <p class="mt-4 font-bold">{testimonial.name}, {testimonial.company}</p>
+    </div>
+  ))}
+</div>
