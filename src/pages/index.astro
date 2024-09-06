@@ -6,7 +6,9 @@ import ClientComponent from "@components/home/clientComponent.astro";
 import ServiceTabComponent from "@components/home/serviceTabComponent.astro";
 import WebDevelopmentTab from "@components/home/webDevelopmentTab.astro";
 import { fetchBlogsAPI } from "@api/blog";
+import { fetchIndustryAPI } from "@api/industry";
 import CaseStudy from "@components/home/caseStudy.astro";
+import { Header } from "@components/common/header/header";
 const colors = ["#FA78001A", "#4980BC1A", "#00DA921A", "#A8E5FF1A"];
 
 const response = await fetchBlogsAPI({
@@ -16,6 +18,12 @@ if (!response.ok) {
   throw new Error(`HTTP error: ${response.status}`);
 }
 const blogsList = await response.json();
+
+const industries = await fetchIndustryAPI();
+if (!response.ok) {
+  throw new Error(`HTTP error: ${response.status}`);
+}
+const industryData = await industries.json();
 ---
 
 <style>
@@ -46,6 +54,8 @@ const blogsList = await response.json();
 </style>
 
 <Layout title="Your software product development ally - US, UK, EU, & India.">
+  <Header industryData={industryData} blogs={blogsList}/>
+
   <!-- Component 1 -->
   <div id="scrollableDiv">
     <div class="fadeInBottom">
